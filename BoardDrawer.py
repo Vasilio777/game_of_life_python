@@ -1,5 +1,6 @@
 import turtle
 from Board import Board
+from UI import UI
 from constants import screensize
 
 class BoardDrawer(turtle.Turtle):
@@ -12,6 +13,7 @@ class BoardDrawer(turtle.Turtle):
         self.gird_offset_x = self.board.height*self.cell_size / 2
         self.gird_offset_y = self.board.width*self.cell_size / 2
         
+
         self.draw()
 
     def draw(self):
@@ -29,6 +31,9 @@ class BoardDrawer(turtle.Turtle):
         self.clear()
         self.board.update_alive()
         self.draw()
+
+    def fill_ui(self, ui: UI):
+        ui.init_figures(self.board.still_lifes.keys())
 
     def toggle_cell_state(self, x, y):
         new_x = round((x + self.gird_offset_x)/self.cell_size)

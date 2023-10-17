@@ -38,6 +38,7 @@ def handle_LMB(x, y):
 
 ui = UI()
 board = BoardDrawer()
+board.fill_ui(ui)
 
 init_game()
 
